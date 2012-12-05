@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -21,10 +20,7 @@ namespace noocyte.Windows.RndImgSrc
         private string _Title = string.Empty;
         public string Title
         {
-            get
-            {
-                return this._Title;
-            }
+            get { return this._Title; }
 
             set
             {
@@ -39,10 +35,7 @@ namespace noocyte.Windows.RndImgSrc
         private ImageSource _Image = null;
         public ImageSource Image
         {
-            get
-            {
-                return this._Image;
-            }
+            get { return this._Image; }
 
             set
             {
@@ -62,10 +55,7 @@ namespace noocyte.Windows.RndImgSrc
         private string _Link = string.Empty;
         public string Link
         {
-            get
-            {
-                return this._Link;
-            }
+            get { return this._Link; }
 
             set
             {
@@ -87,7 +77,6 @@ namespace noocyte.Windows.RndImgSrc
             return (System.Collections.Generic.IEnumerator<object>)base.GetEnumerator();
         }
     }
-
 
     public class ImageData
     {
