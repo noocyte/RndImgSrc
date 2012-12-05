@@ -15,6 +15,98 @@
                 <ResourceDictionary Source="Common/StandardStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
+            <Style x:Key="TitleStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Segoe UI Light" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            <Style x:Key="H1Style" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Segoe UI Semilight" />
+                <Setter Property="FontSize" Value="26.667" />
+                <Setter Property="Margin" Value="0,0,0,25" />
+            </Style>
+            <Style x:Key="H2Style" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Segoe UI" />
+                <Setter Property="FontSize" Value="14.667" />
+                <Setter Property="Margin" Value="0,0,0,0" />
+            </Style>
+            <Style x:Key="H3Style" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Segoe UI Semilight" />
+                <Setter Property="FontSize" Value="14.667" />
+                <Setter Property="Margin" Value="0,0,0,5" />
+            </Style>
+            <Style x:Key="ListBoxTextStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Segoe UI Light" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            <Style x:Key="DescriptionTextStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Segoe UI Light" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            <Style x:Key="SeparatorStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Segoe UI" />
+                <Setter Property="FontSize" Value="9" />
+            </Style>
+            <Style x:Key="FooterStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Segoe UI" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Margin" Value="0,8,0,0" />
+            </Style>
+            <Style x:Key="TextBoxStyle" TargetType="TextBox">
+                <Setter Property="FontFamily" Value="Segoe UI Light" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+
+            <Style x:Key="ItemTitleStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Segoe UI Light"/>
+                <Setter Property="FontSize" Value="14.667"/>
+            </Style>
+
+            <Style x:Key="ItemSubtitleStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Segoe UI Light"/>
+                <Setter Property="FontSize" Value="14.667"/>
+            </Style>
+
+
+            <!-- Scenario #1 Resources -->
+            <DataTemplate x:Key="StoreFrontTileTemplate">
+                <Grid HorizontalAlignment="Left" Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <Image Source="{Binding Image}" MaxWidth="1024"  VerticalAlignment="Center" Margin="0,0,0,0"
+                               ToolTipService.ToolTip="{Binding Title}"/>
+
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+
+            <Style x:Key="StoreFrontTileStyle"  TargetType="GridViewItem">
+                <Setter Property="FontFamily" Value="Segoe UI" />
+                <Setter Property="Height" Value="80" />
+                <Setter Property="Width" Value="292" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Margin" Value="0,0,8,8" />
+                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                <Setter Property="VerticalContentAlignment" Value="Top" />
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="TabNavigation" Value="Local" />
+            </Style>
+
+            <Style x:Key="StoreFrontLVTileStyle"  TargetType="ListViewItem">
+                <Setter Property="FontFamily" Value="Segoe UI" />
+                <Setter Property="Height" Value="80" />
+                <Setter Property="Width" Value="292" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Margin" Value="0,0,8,8" />
+                <Setter Property="HorizontalContentAlignment" Value="Left" />
+                <Setter Property="VerticalContentAlignment" Value="Top" />
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="TabNavigation" Value="Local" />
+            </Style>
+
+            <ItemsPanelTemplate x:Key="StoreFrontGridItemsPanelTemplate">
+                <WrapGrid MaximumRowsOrColumns="3" VerticalChildrenAlignment="Top"
+					  HorizontalChildrenAlignment="Left"/>
+            </ItemsPanelTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
