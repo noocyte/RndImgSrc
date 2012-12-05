@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Networking.Connectivity;
 using Windows.Networking;
-using Windows.Networking.;
+using System.Net.Http;
+using Windows.Data.Json;
 
 namespace noocyte.Windows.RndImgSrc
 {
@@ -29,11 +30,34 @@ namespace noocyte.Windows.RndImgSrc
             return string.Empty;
         }
 
-        public ItemCollection GetImages(string searchQuery)
+        public async Task<ItemCollection> ExaminePhotos(string query)
         {
+            string responseText = await GetImageJson(query);
+            JsonObject root = JsonObject.Parse(responseText);
+            var response = root.GetNamedObject("responseData");
+            var images = response.GetNamedArray("results");
+            for (uint i = 0; i < images.Count; i++)
+            {
+                Item item = new Item();
+                item.Title = images.GetObjectAt(i).GetNamedString("title");
+                item.SetImage(new Uri(images.GetObjectAt(i).GetNamedString("url")));
+                item.Link = images.GetObjectAt(i).GetNamedString("originalContextUrl");
+                Collection.Add(item);
+            }
+            return this.Collection;
+        }
 
+        private ItemCollection _Collection = new ItemCollection();
+        public ItemCollection Collection
+        {
+            get { return this._Collection; }
+        }
 
-            return null;
+        private async Task<string> GetImageJson(string query)
+        {
+            var client = new HttpClient();
+            string url = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=fuzzy%20monkey&rsz=8";
+            return await client.GetStringAsync(url);
         }
     }
 }

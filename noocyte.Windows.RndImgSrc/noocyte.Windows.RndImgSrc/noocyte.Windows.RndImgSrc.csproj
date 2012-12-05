@@ -107,6 +107,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Datasource.cs" />
+    <Compile Include="GoogleImageSearch.cs" />
     <Compile Include="ImageGrid.xaml.cs">
       <DependentUpon>ImageGrid.xaml</DependentUpon>
     </Compile>

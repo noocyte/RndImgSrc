@@ -16,7 +16,14 @@ namespace noocyte.Windows.RndImgSrc
         public ImageGrid()
         {
             InitializeComponent();
-            ItemGridView.ItemsSource = new ImageData().Collection;
+            PopulateGrid();
+            
+        }
+
+        private async void PopulateGrid()
+        {
+            GoogleImageSearch gis = new GoogleImageSearch();
+            ItemGridView.ItemsSource = await gis.ExaminePhotos("test");
         }
 
      
